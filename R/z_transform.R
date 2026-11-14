@@ -13,7 +13,8 @@
 #' z_transform(c(5, NA, 15, 20), replaceNA = TRUE)
 #'
 #' @export
-z_transform <- function(input, replaceNA = FALSE){
+z_transform <- function(input,
+                        replaceNA = FALSE){
 
   stopifnot("Requires a numeric input vector" =
               is.numeric(input))
@@ -35,7 +36,7 @@ z_transform <- function(input, replaceNA = FALSE){
     input[is.na(input)] <- mean(input, na.rm = TRUE)
   }
 
-  scaled_input <- (input - mean(input, na.rm = TRUE))/(stats::sd(input, na.rm = TRUE))
+  z_scaled_out <- (input - mean(input, na.rm = TRUE))/(stats::sd(input, na.rm = TRUE))
 
-  return(scaled_input)
+  return(z_scaled_out)
 }

@@ -13,7 +13,8 @@
 #' min_max_transform(c(5, NA, 15, 20), replaceNA = TRUE)
 #'
 #' @export
-min_max_transform <- function(input, replaceNA = FALSE){
+min_max_transform <- function(input,
+                              replaceNA = FALSE){
 
   stopifnot("Requires a numeric input vector" =
               is.numeric(input))
@@ -36,7 +37,7 @@ min_max_transform <- function(input, replaceNA = FALSE){
   }
 
 
-  scaled_input <- (input - min(input, na.rm = TRUE))/(max(input, na.rm = TRUE) - min(input, na.rm = TRUE))
+  minmax_scaled_out <- (input - min(input, na.rm = TRUE))/(max(input, na.rm = TRUE) - min(input, na.rm = TRUE))
 
-  return(scaled_input)
+  return(minmax_scaled_out)
 }
