@@ -18,19 +18,23 @@ min_max_transform <- function(input, replaceNA = FALSE){
   stopifnot("Requires a numeric input vector" =
               is.numeric(input))
 
+  stopifnot("The input should be finite" =
+              all(is.finite(input[!is.na(input)])))
+
   stopifnot("replaceNA should be Boolean" =
               (is.logical(replaceNA) && length(replaceNA) == 1))
 
   stopifnot("Minimum number of non-missing values is 2" =
               sum(!is.na(input)) >= 2)
 
+  if(min(input, na.rm = TRUE) == max(input, na.rm = TRUE)){
+    stop("Invalid Transformation: The denominator cannot be zero.")
+  }
+
   if(replaceNA){
     input[is.na(input)] <- mean(input, na.rm = TRUE)
   }
 
-  if(min(input, na.rm = TRUE) == max(input, na.rm = TRUE)){
-    stop("Invalid Transformation: The denominator cannot be zero.")
-  }
 
   scaled_input <- (input - min(input, na.rm = TRUE))/(max(input, na.rm = TRUE) - min(input, na.rm = TRUE))
 
