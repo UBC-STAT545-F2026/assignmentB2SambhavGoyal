@@ -23,13 +23,14 @@ min_max_transform <- function(input,
               all(is.finite(input[!is.na(input)])))
 
   stopifnot("replaceNA should be Boolean" =
-              (is.logical(replaceNA) && length(replaceNA) == 1))
+              (is.logical(replaceNA) &&
+                 length(replaceNA) == 1))
 
   stopifnot("Minimum number of non-missing values is 2" =
               sum(!is.na(input)) >= 2)
 
   if(min(input, na.rm = TRUE) == max(input, na.rm = TRUE)){
-    stop("Invalid Transformation: The denominator cannot be zero.")
+    stop("The denominator cannot be zero.")
   }
 
   if(replaceNA){
