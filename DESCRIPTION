@@ -11,5 +11,8 @@ Config/roxygen2/version: 8.1.0
 Imports: 
   stats
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    palmerpenguins,
+    tidyverse,
+    datasets
 Config/testthat/edition: 3

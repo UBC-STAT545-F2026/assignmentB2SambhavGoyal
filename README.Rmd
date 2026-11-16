@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of assignmentB2SambhavGoyal is to provide functions for transforming and scaling numeric vectors using various mathematical approaches.
+The goal of assignmentB2SambhavGoyal is to provide functions for transforming and scaling numeric vectors using various mathematical approaches. This is particularly useful for anyone handling data from different sources and wants to scale it to a common form for comparison.
 
 ## Installation
 
@@ -29,17 +29,35 @@ You can install the development version of assignmentB2SambhavGoyal from [GitHub
 pak::pak("UBC-STAT545-F2026/assignmentB2SambhavGoyal")
 ```
 
-## Example
+## Examples
+Suppose we have product prices (measured in dollars), we can try to apply three transformations:
 
-This is a basic example which shows you how to solve a common problem: (...Think of something creative...)
-
-```{r example}
+```{r example-1}
 library(assignmentB2SambhavGoyal)
-## basic example code
 
 product_prices <- c(2, 2.15, NA, 2.76, 1.99)
 
-# Lets find prices after the scaling
 assignmentB2SambhavGoyal::min_max_transform(product_prices, replaceNA = TRUE)
+assignmentB2SambhavGoyal::z_transform(product_prices, replaceNA = FALSE)
+assignmentB2SambhavGoyal::log_min_max_transform(product_prices)
+
+```
+
+Here is another example of using the transformations using the `penguins` dataset.
+
+```{r example-2}
+# Use the penguins dataset for the example
+penguins<- palmerpenguins::penguins
+
+penguins_transformed <- penguins |>
+  dplyr::mutate(
+    Original_flipper_length = flipper_length_mm,
+    Min_Max = assignmentB2SambhavGoyal::min_max_transform(flipper_length_mm),
+    Z_Score = assignmentB2SambhavGoyal::z_transform(flipper_length_mm),
+    Log_Min_Max = assignmentB2SambhavGoyal::log_min_max_transform(flipper_length_mm)
+  ) |>
+  dplyr::select(Original_flipper_length, Min_Max, Z_Score, Log_Min_Max)
+
+head(penguins_transformed)
 ```
 
