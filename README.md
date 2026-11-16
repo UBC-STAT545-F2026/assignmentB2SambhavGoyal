@@ -18,26 +18,35 @@ The three different functions developed in this package are:
   logic. This tells how deviated the values are from the minimum and
   divides by the range of the dataset. This transformation is given by:
 
-$$ x_{scaled} = \frac{(x_{act} - min(X))}{(max(X) - min(X))} $$ for
-every $x_{act} \in X$, where $x_{act}$ is the actual value and $X$ is
-the numeric vector.
+$$
+x_{scaled} = \frac{(x_{act} - min(X))}{(max(X) - min(X))} 
+$$
+
+for every $x_{act} \in X$, where $x_{act}$ is the actual value and $X$
+is the numeric vector.
 
 - `z_transform` : Transforms the variable based on z scores. This tells
   how deviated the values are from the mean value of the data and also
   considers spread of the distribution. This allows comparison of
   different variables. This transformation is given by:
 
-$$ x_{scaled} = \frac{(x_{act} - \mu(X))}{\sigma(X)} $$ for every
-$x_{act} \in X$, where $x_{act}$ is the actual value, $X$ is the numeric
-vector, $\mu(X)$ is the mean of the vector, and $\sigma(X)$ is the
-standard deviation of the vector.
+$$
+x_{scaled} = \frac{(x_{act} - \mu(X))}{\sigma(X)} 
+$$
+
+for every $x_{act} \in X$, where $x_{act}$ is the actual value, $X$ is
+the numeric vector, $\mu(X)$ is the mean of the vector, and $\sigma(X)$
+is the standard deviation of the vector.
 
 - `log_min_max_transform` : Transforms the variable based on a
   combination of log scaling and min-max transformation. It introduces a
   nonlinear transformation that reduces differences among largely spread
   observations. This transformation is given by:
 
-$$ x_{scaled} = \frac{(log(x_{act}) - log(min(X))}{(log(max(X)) - log(min(X))} $$
+$$ 
+x_{scaled} = \frac{(log(x_{act}) - log(min(X))}{(log(max(X)) - log(min(X))} 
+$$
+
 for every $x_{act} \in X$, where $x_{act}$ is the actual value, and $X$
 is the numeric vector.
 
