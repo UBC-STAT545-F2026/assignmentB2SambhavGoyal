@@ -18,9 +18,26 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of assignmentB2SambhavGoyal is to provide functions for transforming and scaling numeric vectors using various mathematical approaches. This is particularly useful for anyone handling data from different sources and wants to scale it to a common form for comparison.
+The goal of `assignmentB2SambhavGoyal` is to provide functions for transforming and scaling numeric vectors using various mathematical approaches. This is particularly useful for anyone handling data from different sources and wants to scale it to a common form for comparison.
 
-## Installation
+The three different functions developed in this package are:
+
+- `min_max_transform` : Transforms the variable based on min-max scaling logic. This tells how deviated the values are from the minimum and divides by the range of the dataset. This transformation is given by:
+
+$$ x_{scaled} = \frac{(x_{act} - min(X))}{(max(X) - min(X))} $$
+for every $x_{act} \in X$, where $x_{act}$ is the actual value and $X$ is the numeric vector.
+
+- `z_transform` : Transforms the variable based on z scores. This tells how deviated the values are from the mean value of the data and also considers spread of the distribution. This allows comparison of different variables. This transformation is given by:
+
+$$ x_{scaled} = \frac{(x_{act} - \mu(X))}{\sigma(X)} $$
+for every $x_{act} \in X$, where $x_{act}$ is the actual value, $X$ is the numeric vector, $\mu(X)$ is the mean of the vector, and $\sigma(X)$ is the standard deviation of the vector.
+
+- `log_min_max_transform` : Transforms the variable based on a combination of log scaling and min-max transformation. It introduces a nonlinear transformation that reduces differences among largely spread observations. This transformation is given by: 
+
+$$ x_{scaled} = \frac{(log(x_{act}) - log(min(X))}{(log(max(X)) - log(min(X))} $$
+for every $x_{act} \in X$, where $x_{act}$ is the actual value, and $X$ is the numeric vector.
+
+## Installation (TO BE FIXED)
 
 You can install the development version of assignmentB2SambhavGoyal from [GitHub](https://github.com/) with:
 
@@ -61,3 +78,4 @@ penguins_transformed <- penguins |>
 head(penguins_transformed)
 ```
 
+The table above shows the original flipper length and the transformed values based on the three different functions used in the package.

@@ -14,5 +14,7 @@ Suggests:
     testthat (>= 3.0.0),
     palmerpenguins,
     tidyverse,
-    datasets
+    datasets,
+    knitr,
+    rmarkdown
 Config/testthat/edition: 3
