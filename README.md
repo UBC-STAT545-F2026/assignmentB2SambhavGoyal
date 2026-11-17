@@ -57,7 +57,7 @@ You can install the development version of assignmentB2SambhavGoyal from
 
 ``` r
 library(devtools)
-devtools::install_github("UBC-STAT545-F2026/assignmentB2SambhavGoyal")
+devtools::install_github("UBC-STAT545-F2026/assignmentB2SambhavGoyal",  ref = "0.1.0")
 ```
 
 ## Examples
