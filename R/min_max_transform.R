@@ -1,7 +1,7 @@
 #' @title Min Max Transformation
 #'
 #' @description
-#' Transform an input vector using a min-max scaling logic
+#' Transform an input vector using a min-max scaling logic. This function calculates the maximum and minimum values of the input vector, and transforms the vector values based on difference from minimum relative to overall range of input values.
 #'
 #' @param input A numeric vector input (requires length > 1)
 #' @param replaceNA A boolean user input to handle missing values by replacement with mean of non-missing values; Default is FALSE, implying the missing values will be kept and not changed to mean

@@ -1,7 +1,7 @@
 #' @title Z Score Transformation
 #'
 #' @description
-#' Transform an input vector using a normal distribution scaling logic.
+#' Transform an input vector using a normal distribution scaling logic. This function evaluates mean and standard deviation for the input values, and then transforms the vector values based on the Z-scores of a normal distribution. Missing values can be replaced by mean (OPTIONAL), or kept as is.
 #'
 #' @param input A numeric vector input (requires length > 1)
 #' @param replaceNA A boolean user input to handle missing values by replacement with mean of non-missing values; Default is FALSE, implying the missing values will be kept and not changed to mean

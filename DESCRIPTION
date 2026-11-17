@@ -3,7 +3,7 @@ Title: Numerical Transformations For Vectors
 Version: 0.1.0
 Authors@R: 
     person("Sambhav", "Goyal", , "sambhav.goyal@ubc.ca", role = c("aut", "cre"))
-Description: Provides functions for transforming and scaling numeric vectors using different mathematical approaches. This package has functions on common scaling procedures such as min-max scaling, Z-score standardization, and log-min-max transformation.
+Description: Provides functions for transforming and scaling numeric vectors using different mathematical approaches. This package has functions on common transformation procedures such as min-max transformation, Z-score based normal transformation, and logarithm based min-max transformation.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

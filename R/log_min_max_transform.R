@@ -2,7 +2,7 @@
 #' @title Logarithmic min-max scaling
 #'
 #' @description
-#' Transform an input vector using a logarithmic scaling logic i.e. min-max scaling with logarithm of values.
+#' Transform an input vector using a logarithmic scaling logic i.e. min-max scaling with logarithm of values. This function is an extension to min-max transformation, considering the logarithm based transformation. This introduces a nonlinear transformation on log-scale that reduces differences among largely spread observations.
 #'
 #' @param input A positive numeric vector input (requires length > 1); log of negative numbers is not defined
 #' @param base A finite positive numeric scalar value specifying the base of the log; Default value is e which represents the the natural logarithm (ln).

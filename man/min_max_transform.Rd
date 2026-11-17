@@ -15,7 +15,7 @@ min_max_transform(input, replaceNA = FALSE)
 A transformed vector (in the range 0 to 1); 0 is assigned to minimum of input vector and 1 to the maximum of the input vector
 }
 \description{
-Transform an input vector using a min-max scaling logic
+Transform an input vector using a min-max scaling logic. This function calculates the maximum and minimum values of the input vector, and transforms the vector values based on difference from minimum relative to overall range of input values.
 }
 \examples{
 min_max_transform(c(5, 10, 15))

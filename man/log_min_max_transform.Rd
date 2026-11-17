@@ -17,7 +17,7 @@ log_min_max_transform(input, base = exp(1), replaceNA = FALSE)
 A numeric vector containing log-minmax transformed values.
 }
 \description{
-Transform an input vector using a logarithmic scaling logic i.e. min-max scaling with logarithm of values.
+Transform an input vector using a logarithmic scaling logic i.e. min-max scaling with logarithm of values. This function is an extension to min-max transformation, considering the logarithm based transformation. This introduces a nonlinear transformation on log-scale that reduces differences among largely spread observations.
 }
 \examples{
 log_min_max_transform(c(1, 2, 3))

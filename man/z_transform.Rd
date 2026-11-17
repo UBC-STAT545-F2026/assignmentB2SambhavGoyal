@@ -15,7 +15,7 @@ z_transform(input, replaceNA = FALSE)
 A numeric vector containing the normally standardized values.
 }
 \description{
-Transform an input vector using a normal distribution scaling logic.
+Transform an input vector using a normal distribution scaling logic. This function evaluates mean and standard deviation for the input values, and then transforms the vector values based on the Z-scores of a normal distribution. Missing values can be replaced by mean (OPTIONAL), or kept as is.
 }
 \examples{
 z_transform(c(5, 10, 15))
