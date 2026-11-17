@@ -20,14 +20,13 @@ log_min_max_transform <- function(input,
                                   base = exp(1),
                                   replaceNA = FALSE) {
 
+  # Check for inputs
   stopifnot("Requires a numeric input vector" =
               is.numeric(input))
 
   stopifnot("The input should be finite" =
               all(is.finite(input[!is.na(input)])))
 
-  stopifnot("Logarithm of non-positive inputs is not defined" =
-              all(input[!is.na(input)] > 0))
 
   stopifnot("replaceNA should be Boolean" =
               (is.logical(replaceNA) &&
@@ -35,6 +34,10 @@ log_min_max_transform <- function(input,
 
   stopifnot("Minimum number of non-missing values is 2" =
               sum(!is.na(input)) >= 2)
+
+  # Standard Definition of logarithms
+  stopifnot("Logarithm of non-positive inputs is not defined" =
+              all(input[!is.na(input)] > 0))
 
   stopifnot("Base should be numeric scalar" =
               (is.numeric(base) &&
@@ -45,14 +48,17 @@ log_min_max_transform <- function(input,
                  base > 0 &&
                  is.finite(base)))
 
+  # Check for equality
   if(min(input, na.rm = TRUE) == max(input, na.rm = TRUE)){
     stop("Invalid Transformation: The denominator cannot be zero.")
   }
 
+  # Handling missing values
   if(replaceNA){
     input[is.na(input)] <- mean(input, na.rm = TRUE)
   }
 
+  # Calculate the values and transformation
   log_input <- log(input, base = base)
   log_min <- log(min(input, na.rm = TRUE), base = base)
   log_max <- log(max(input, na.rm = TRUE), base = base)

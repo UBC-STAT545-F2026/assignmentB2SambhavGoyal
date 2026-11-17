@@ -16,6 +16,7 @@
 min_max_transform <- function(input,
                               replaceNA = FALSE){
 
+  # Check for inputs
   stopifnot("Requires a numeric input vector" =
               is.numeric(input))
 
@@ -29,15 +30,17 @@ min_max_transform <- function(input,
   stopifnot("Minimum number of non-missing values is 2" =
               sum(!is.na(input)) >= 2)
 
+  # Check for equality
   if(min(input, na.rm = TRUE) == max(input, na.rm = TRUE)){
     stop("The denominator cannot be zero.")
   }
 
+  # Handle missing values
   if(replaceNA){
     input[is.na(input)] <- mean(input, na.rm = TRUE)
   }
 
-
+  # Transformation Function
   minmax_scaled_out <- (input - min(input, na.rm = TRUE))/(max(input, na.rm = TRUE) - min(input, na.rm = TRUE))
 
   return(minmax_scaled_out)

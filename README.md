@@ -50,14 +50,14 @@ $$
 for every $x_{act} \in X$, where $x_{act}$ is the actual value, and $X$
 is the numeric vector.
 
-## Installation (TO BE FIXED)
+## Installation
 
 You can install the development version of assignmentB2SambhavGoyal from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("UBC-STAT545-F2026/assignmentB2SambhavGoyal")
+library(devtools)
+devtools::install_github("UBC-STAT545-F2026/assignmentB2SambhavGoyal")
 ```
 
 ## Examples

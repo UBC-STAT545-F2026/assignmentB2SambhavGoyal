@@ -16,6 +16,7 @@
 z_transform <- function(input,
                         replaceNA = FALSE){
 
+  # Check for inputs
   stopifnot("Requires a numeric input vector" =
               is.numeric(input))
 
@@ -29,10 +30,12 @@ z_transform <- function(input,
   stopifnot("Minimum number of non-missing values is 2" =
               sum(!is.na(input)) >= 2)
 
+  # Check for SD to be zero (Also considers equality of all numbers)
   if (stats::sd(input, na.rm = TRUE) == 0) {
     stop("Standard deviation cannot be zero")
   }
 
+  # Handling replacement
   if(replaceNA){
     input[is.na(input)] <- mean(input, na.rm = TRUE)
   }
